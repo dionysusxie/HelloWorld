@@ -1,0 +1,3 @@
+1, 拷贝远程机器的目录内容到本地目录：
+rsync -av -e "ssh -p 8000 -l login_name" 10.28.5.80:/www/allyes/adf/tagging_sync/ifc/ /home/angus_he/ifc-tagging-sync/input
+
