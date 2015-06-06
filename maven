@@ -7,3 +7,9 @@ How to create a basic project:
   $ java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App
 
 
+Search dependency lib on:
+http://www.ibiblio.org
+E.g., http://mirrors.ibiblio.org/maven2/log4j/log4j/
+
+
+
