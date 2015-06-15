@@ -12,4 +12,6 @@ http://www.ibiblio.org
 E.g., http://mirrors.ibiblio.org/maven2/log4j/log4j/
 
 
+Run java:
+mvn exec:java -Dexec.mainClass="com.vineetmanohar.module.Main" -Dexec.args="arg0 arg1 arg2"
 
