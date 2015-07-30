@@ -1,0 +1,6 @@
+1) https://github.com/angushe/lua-protobuf
+
+2) protoc-gen-lua 是个 python 脚本，该脚本报错是，请尝试
+  $ unset PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION
+
+
