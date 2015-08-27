@@ -1,0 +1,12 @@
+查看物理cpu个数
+grep 'physical id' /proc/cpuinfo | sort -u
+
+查看核心数量
+grep 'core id' /proc/cpuinfo | sort -u | wc -l
+
+查看线程数
+grep 'processor' /proc/cpuinfo | sort -u | wc -l
+
+查看cpu型号
+dmidecode -s processor-version
+
