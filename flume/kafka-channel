@@ -1,0 +1,23 @@
+拓扑图如下：
+agent 1: (taildir source --> kafka channel) --> agent 2 (kafka channel --> hdfs sink) --> HDFS
+
+Question 1,
+agent2 上 kafka channel 从 kafka 上读出数据后并写入 HDFS 后，会把数据从 kafka 上删除吗？
+
+不应该认为地引入不必要的复杂性，作为整个系统的数据缓存站的 kafka 集群，同时又是一个flume的channel，这两者是有冲突的！
+作为flume的内部channel ，它自己有其自己的规则。
+而 kafka 集群应该是和 flume 解耦的。
+
+要用的话，应该在写入的 agent 上配置 parseAsFlumeEvent ＝ false.
+否则的话 kafka 上的数据是以 avro enent 格式压缩的（avro enevt 是 flume 的内部用的格式），
+还会在读取端，强制设置 kafka consumer 的属性 auto.offset.reset ＝ smallest，
+  auto.offset.reset: default: largest 
+  What to do when there is no initial offset in Zookeeper or if an offset is out of range:
+  * smallest : automatically reset the offset to the smallest offset
+  * largest :  automatically reset the offset to the largest offset
+
+
+2、
+云的数据应该直接来自 flume，不从 kafka 中转，kafka 并不是很可靠，offset 可能丢失，只可以用来做实时通路。
+美团的架构就是 HDFS 与 kafka 是并列的。
+
