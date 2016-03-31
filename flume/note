@@ -1,0 +1,30 @@
+0、
+flume 线上用哪个版本？
+
+1、
+两个 HdfsSink 同时向相同的 hdfs 文件夹操作，他们新建文件时，新文件的名字是否会冲突？
+该文件的名字是由 sink 端决定还是 hdfs 返回？
+
+2、
+hdfs 上的 .tmp 文件如果没有正常关闭：
+  a) hdfs sink 异常关闭；
+  b) hdfs 异常；
+
+3、
+allyes tail dir source 的 file_num 没有设置；
+position 文件加入已读的行数；
+
+4、
+写入 hdfs 的 flume agent 上要设置一个独有的 kafka consumer group ID；
+
+5、
+kafka producer 的配置确认，以保证数据不丢失。现在的 kafka 官网的文档好像没有更新。
+
+6、
+有时 flume 连不上 kafka，报错：java.net.NoRouteToHostException: 没有到主机的路由
+可能是对方主机的防火墙的问题，关闭防火墙：service iptables stop，或者开放相关端口。
+hdfs 上的防火墙也要关闭。
+
+7,
+AllyesTaildirSource 的配置：
+  
