@@ -1,0 +1,5 @@
+自动远程登陆：URL: http://blog.csdn.net/sww_simpcity/article/details/50402028
+
+设置 Tab 标题：
+echo -ne "\033]0; Hello World \007"
+
