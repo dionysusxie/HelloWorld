@@ -1,0 +1,10 @@
+#!/bin/bash
+
+function my_echo() {
+    local l_day=`date +%F`
+    local l_time=`date +%T`
+    echo "["$l_day" "$l_time"]  "$1
+}
+
+my_echo "Hello, world!"
+
