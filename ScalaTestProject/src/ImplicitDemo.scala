@@ -3,6 +3,7 @@ import scala.language.implicitConversions
 
 object ImplicitDemo {
   def display(input:String): Unit = println(input)
+
   implicit def typeConvertor(input:Int): String = input.toString()
 
   //implicit def typeConvertor2(input: Int): String = input.toString()
