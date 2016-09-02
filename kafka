@@ -1,15 +1,16 @@
 topic offset:
-kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list 10.200.28.41:9092 --topic insight04 --time -1 --offset 1 | awk -F  ":" '{sum += $3} END {print sum}'
+  kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list 10.200.28.41:9092 --topic insight04 --time -1 --offset 1 | awk -F  ":" '{sum += $3} END {print sum}'
 
 create topic:
-kafka-topics.sh --create --topic xl-test-01 --zookeeper 10.200.28.38:2181,10.200.28.40:2181,10.200.28.43:2181 --partitions 6 --replication-factor 2
-
-kafka-run-class.sh kafka.tools.ConsumerOffsetChecker --group group.rawlogs.tohdfs --zookeeper 10.26.255.201:2181,10.26.255.202:2181,10.26.255.203:2181/kafka/apollo
+  kafka-topics.sh --create --topic xl-test-01 --zookeeper 10.200.28.38:2181,10.200.28.40:2181,10.200.28.43:2181 --partitions 6 --replication-factor 2
 
 consumer group:
-run on 10.26.5.111, work dir: /home/dio_xie/kafka_2.11-0.9.0.1/bin
-./kafka-consumer-groups.sh --bootstrap-server 10.26.255.211:9092,10.26.255.212:9092,10.26.255.213:9092 --new-consumer --list
-./kafka-consumer-groups.sh --bootstrap-server 10.26.255.211:9092,10.26.255.212:9092,10.26.255.213:9092 --new-consumer --describe --group dynamicCreative
-or use:
-./kafka-run-class.sh kafka.admin.ConsumerGroupCommand ...
+  deprecated:
+  kafka-run-class.sh kafka.tools.ConsumerOffsetChecker --group group.rawlogs.tohdfs --zookeeper 10.26.255.201:2181,10.26.255.202:2181,10.26.255.203:2181/kafka/apollo
+
+  (run on 10.26.5.111, work dir: /home/dio_xie/kafka_2.11-0.9.0.1/bin)
+  ./kafka-consumer-groups.sh --bootstrap-server 10.26.255.211:9092,10.26.255.212:9092,10.26.255.213:9092 --new-consumer --list
+  ./kafka-consumer-groups.sh --bootstrap-server 10.26.255.211:9092,10.26.255.212:9092,10.26.255.213:9092 --new-consumer --describe --group dynamicCreative
+  or use:
+  ./kafka-run-class.sh kafka.admin.ConsumerGroupCommand ...
 
