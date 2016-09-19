@@ -1,0 +1,6 @@
+10.200.28.40 dp
+
+hbase shell
+list
+scan 'table-name'
+
