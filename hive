@@ -1,0 +1,2 @@
+select timestamp, ip, deviceid,reflect("java.net.URLDecoder", "decode", messageheader), reflect("java.net.URLDecoder", "decode", messagebody) from ar_aim_rawlog where dt='2016-10-27' limit 10;
+
