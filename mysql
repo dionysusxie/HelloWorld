@@ -1,0 +1,5 @@
+mysql -h x.x.x.x -u dp -p
+mysql> show databases;
+mysql> use ainsight;
+mysql> show tables;
+
